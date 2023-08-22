@@ -23,8 +23,8 @@ class Project {
         $array = array();
         $result = $conn->query($query);
         if($result){
-            while($red = $result->fetch_array()) {
-                $array[] = $red;
+            while($row = $result->fetch_array(1)) {
+                $array[] = $row;
             }
         }
 
@@ -45,7 +45,7 @@ class Project {
     }
 
     public static function update(Project $project, mysqli $conn){
-        $query = "UPDATE project set name ='$project->name', description='$project->description'";
+        $query = "UPDATE project set name ='$project->name', description='$project->description' WHERE id='$project->id'";
         return $conn->query($query);
     }
 
