@@ -14,7 +14,7 @@ class Task {
         $this->project_id = $project_id;
     }
 
-    public static function findAll ($mysqli $conn) {
+    public static function findAll (mysqli $conn) {
         $query = "SELECT * FROM task";
         return $conn->query($query);
     }
@@ -22,16 +22,16 @@ class Task {
     public static function findById($id, mysqli $conn)
     {
         $query = "SELECT * FROM task WHERE id=$id";
-        $array = array();
-        $result = $conn->query($query);
-        if($result){
-            while($red = $result->fetch_array()) {
-                $array[] = $red;
-            }
-        }
+        
 
-        return $array;
+        return $conn->query($query);
 
+    }
+
+    public static function findByProject($project_id, mysqli $conn)
+    {
+        $query = "SELECT * FROM task WHERE project_id=$project_id";
+        return $conn->query($query);
     }
 
     public static function deleteById($id, mysqli $conn)
@@ -47,7 +47,7 @@ class Task {
     }
 
     public static function update(Task $task, mysqli $conn){
-        $query = "UPDATE task set name ='$task->name', description='$task->description'";
+        $query = "UPDATE task set name ='$task->name', description='$task->description' WHERE id='$task->id'";
         return $conn->query($query);
     }
 
