@@ -6,7 +6,7 @@ session_start();
 
 if (isset($_GET['id']) && isset($_GET['project_id'])) {
     $taskId = mysqli_real_escape_string($conn, $_GET['id']);
-    $projectId = mysqli_real_escape_string($conn, $_GET['id']);
+    $projectId = mysqli_real_escape_string($conn, $_GET['project_id']);
 
     $result = Task::findById($taskId, $conn);
 }
