@@ -31,7 +31,8 @@ class Task {
     public static function findByProject($project_id, mysqli $conn)
     {
         $query = "SELECT * FROM task WHERE project_id=$project_id";
-        return $conn->query($query);
+        return $conn->query($query); 
+        
     }
 
     public static function deleteById($id, mysqli $conn)
