@@ -65,7 +65,7 @@ if (!$result) {
                                     <a href="task-update.php?id=<?= $row['id']; ?>&project_id=<?=$projectId?>" class="btn btn-success btn-sm">Edit</a>
                                     <form action="handler/task/delete.php" id="deleteTask" method="POST" class="d-inline">
                                     <input type="hidden" name="id" value="<?=$row["id"]?>">
-                                    <input type="hidden" name="project" value="<?=$projectId?>">
+                                    <input type="hidden" name="project_id" value="<?=$projectId?>">
 
                                     <button type="submit" id="deleteTask" name="delete_task" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
